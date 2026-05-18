@@ -2,70 +2,625 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>All About Welcome</title>
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+  />
+
+  <title>TestSutra • Coming Soon</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #4f46e5, #0f172a);
-      color: #fff;
-      text-align: center;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
-    .welcome-card {
-      max-width: 720px;
-      padding: 2.5rem 2rem;
-      border-radius: 24px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+
+    :root{
+
+      --bg1:#031517;
+      --bg2:#0a3531;
+
+      --card:#071d20;
+
+      --primary:#ffd84d;
+      --primarySoft:rgba(255,216,77,0.12);
+
+      --white:#ffffff;
+
+      --text:#d2dddd;
+      --border:rgba(255,255,255,0.08);
+
     }
-    h1 {
-      font-size: clamp(2.5rem, 4vw, 3.5rem);
-      margin: 0 0 1rem;
+
+    body{
+
+      font-family:'Poppins',sans-serif;
+
+      background:
+      radial-gradient(circle at top left,
+      rgba(255,216,77,0.08),
+      transparent 30%),
+
+      radial-gradient(circle at bottom right,
+      rgba(0,255,170,0.05),
+      transparent 30%),
+
+      linear-gradient(145deg,var(--bg1),var(--bg2));
+
+      min-height:100vh;
+
+      overflow-x:hidden;
+
+      color:var(--white);
+
+      position:relative;
+
     }
-    p {
-      margin: 0 0 1.5rem;
-      color: #cbd5e1;
-      line-height: 1.7;
-      font-size: 1.05rem;
+
+    body::before{
+
+      content:"";
+
+      position:fixed;
+
+      width:220px;
+      height:220px;
+
+      background:#ffd84d;
+
+      opacity:0.06;
+
+      filter:blur(110px);
+
+      top:-90px;
+      left:-90px;
+
+      border-radius:50%;
+
+      z-index:0;
+
     }
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
+
+    body::after{
+
+      content:"";
+
+      position:fixed;
+
+      width:240px;
+      height:240px;
+
+      background:#00ffbb;
+
+      opacity:0.04;
+
+      filter:blur(120px);
+
+      right:-100px;
+      bottom:-100px;
+
+      border-radius:50%;
+
+      z-index:0;
+
     }
-    .links a {
-      display: inline-block;
-      padding: 0.95rem 1.6rem;
-      border-radius: 999px;
-      background: #7c3aed;
-      color: #fff;
-      text-decoration: none;
-      transition: transform 0.2s ease, background-color 0.2s ease;
+
+    .container{
+
+      width:100%;
+
+      max-width:480px;
+
+      margin:auto;
+
+      min-height:100vh;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      padding:16px;
+
+      position:relative;
+
+      z-index:2;
+
     }
-    .links a:hover {
-      transform: translateY(-2px);
-      background: #5b21b6;
+
+    .card{
+
+      width:100%;
+
+      background:rgba(7,29,32,0.95);
+
+      border:1px solid var(--border);
+
+      border-radius:14px;
+
+      padding:18px 16px;
+
+      backdrop-filter:blur(12px);
+
+      box-shadow:
+      0 10px 30px rgba(0,0,0,0.30);
+
+      position:relative;
+
+      overflow:hidden;
+
     }
+
+    .card::before{
+
+      content:"";
+
+      position:absolute;
+
+      width:140px;
+      height:140px;
+
+      background:rgba(255,216,77,0.05);
+
+      border-radius:50%;
+
+      top:-60px;
+      right:-60px;
+
+    }
+
+    .top{
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      gap:12px;
+
+      margin-bottom:20px;
+
+    }
+
+    .logo{
+
+      width:58px;
+      height:58px;
+
+      border-radius:18px;
+
+      overflow:hidden;
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      background:rgba(255,255,255,0.05);
+
+      flex-shrink:0;
+
+    }
+
+    .logo img{
+
+      width:100%;
+      height:100%;
+
+      object-fit:cover;
+
+    }
+
+    .brand{
+
+      display:flex;
+
+      flex-direction:column;
+
+    }
+
+    .brand h1{
+
+      font-size:26px;
+
+      line-height:1;
+
+      font-weight:800;
+
+      letter-spacing:-0.5px;
+
+    }
+
+    .brand h1 span{
+
+      color:var(--primary);
+
+    }
+
+    .brand p{
+
+      color:#b7c5c5;
+
+      margin-top:4px;
+
+      font-size:12px;
+
+      font-weight:500;
+
+    }
+
+    .badge{
+
+      width:max-content;
+
+      margin:auto;
+
+      background:var(--primarySoft);
+
+      border:1px solid rgba(255,216,77,0.15);
+
+      color:var(--primary);
+
+      padding:7px 12px;
+
+      border-radius:8px;
+
+      font-size:12px;
+
+      font-weight:700;
+
+      margin-bottom:18px;
+
+    }
+
+    .title{
+
+      text-align:center;
+
+      font-size:34px;
+
+      line-height:1.2;
+
+      font-weight:800;
+
+      letter-spacing:-1px;
+
+      margin-bottom:12px;
+
+    }
+
+    .title span{
+
+      color:var(--primary);
+
+    }
+
+    .desc{
+
+      text-align:center;
+
+      color:var(--text);
+
+      font-size:14px;
+
+      line-height:1.7;
+
+      margin-bottom:18px;
+
+    }
+
+    .features{
+
+      display:flex;
+
+      flex-direction:column;
+
+      gap:10px;
+
+      margin-bottom:18px;
+
+    }
+
+    .feature{
+
+      display:flex;
+
+      align-items:flex-start;
+
+      gap:12px;
+
+      background:rgba(255,255,255,0.03);
+
+      border:1px solid rgba(255,255,255,0.05);
+
+      border-radius:10px;
+
+      padding:12px;
+
+      transition:0.3s;
+
+    }
+
+    .feature:hover{
+
+      border-color:rgba(255,216,77,0.18);
+
+      transform:translateY(-1px);
+
+    }
+
+    .icon{
+
+      width:42px;
+      height:42px;
+
+      border-radius:10px;
+
+      background:rgba(255,216,77,0.10);
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      font-size:18px;
+
+      flex-shrink:0;
+
+    }
+
+    .feature-text h3{
+
+      font-size:15px;
+
+      margin-bottom:4px;
+
+      font-weight:700;
+
+      color:#fff;
+
+    }
+
+    .feature-text p{
+
+      font-size:12px;
+
+      color:#c7d2d2;
+
+      line-height:1.6;
+
+    }
+
+    .bottom{
+
+      background:
+      linear-gradient(
+      135deg,
+      rgba(255,216,77,0.08),
+      rgba(255,255,255,0.02)
+      );
+
+      border:1px solid rgba(255,216,77,0.10);
+
+      border-radius:10px;
+
+      padding:14px;
+
+      text-align:center;
+
+    }
+
+    .bottom h4{
+
+      color:var(--primary);
+
+      font-size:16px;
+
+      margin-bottom:6px;
+
+      font-weight:700;
+
+    }
+
+    .bottom p{
+
+      color:#c8d3d3;
+
+      font-size:13px;
+
+      line-height:1.6;
+
+    }
+
+    .footer{
+
+      text-align:center;
+
+      margin-top:14px;
+
+      color:rgba(255,255,255,0.40);
+
+      font-size:11px;
+
+    }
+
+    @media(max-width:420px){
+
+      .title{
+
+        font-size:29px;
+
+      }
+
+      .brand h1{
+
+        font-size:23px;
+
+      }
+
+      .card{
+
+        padding:16px 14px;
+
+      }
+
+      .feature{
+
+        padding:10px;
+
+      }
+
+    }
+
   </style>
 </head>
+
 <body>
-  <div class="welcome-card">
-    <h1>Welcome to AppDetailer</h1>
-    <p>This is your new welcome page for the sample app website. From here, visitors can learn what the app does and continue to the full app showcase in the <strong>coins</strong> section.</p>
-    <div class="links">
-      <a href="coins/index.html">Go to App Details</a>
-      <a href="#about">About This Page</a>
+
+  <div class="container">
+
+    <div class="card">
+
+      <!-- TOP -->
+
+      <div class="top">
+
+        <div class="logo">
+
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyJv1pJ7dPuhxSlv5jrSXvW-DjQLTM_Tuy1Bx8RyUB0xrTB6jbqApQyRda7EDmR5us_SK12iWk2dISDwBYYwK7g2uNKmaDGayHJldML_AuMWAf6SVCljHtkyaGpaQ12DoKjbKrcoReSspk2mMHwNrEmoLBkpVjBGwZy14NQiKUjqY3U8ScR1JqWgQtkat9eUGrVN06NbxFRnIavOqXfyXHwAlKvh-jkHUIBpFjqlNvW0SGQDC3LrljLNKrCe4G7rDGMO7GUN4xUfU"
+            alt="TestSutra Logo"
+          />
+
+        </div>
+
+        <div class="brand">
+
+          <h1>Test<span>Sutra</span></h1>
+
+          <p>Learn • Share • Grow</p>
+
+        </div>
+
+      </div>
+
+      <!-- BADGE -->
+
+      <div class="badge">
+        🚀 New Features Coming Soon
+      </div>
+
+      <!-- TITLE -->
+
+      <h2 class="title">
+        Welcome to <span>TestSutra</span>
+      </h2>
+
+      <!-- DESCRIPTION -->
+
+      <p class="desc">
+
+        This section is currently under development.
+        We are preparing a better learning experience,
+        smart features, and a cleaner interface for the
+        TestSutra community.
+
+      </p>
+
+      <!-- FEATURES -->
+
+      <div class="features">
+
+        <div class="feature">
+
+          <div class="icon">📚</div>
+
+          <div class="feature-text">
+
+            <h3>Smart Learning</h3>
+
+            <p>
+              New educational tools and learning
+              features are being prepared.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="feature">
+
+          <div class="icon">🗳️</div>
+
+          <div class="feature-text">
+
+            <h3>Interactive Polls</h3>
+
+            <p>
+              Create polls, share opinions,
+              and connect with the community.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="feature">
+
+          <div class="icon">⚡</div>
+
+          <div class="feature-text">
+
+            <h3>Better Experience</h3>
+
+            <p>
+              Faster performance and smoother
+              user experience are coming soon.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- BOTTOM -->
+
+      <div class="bottom">
+
+        <h4>
+          Thank You For Supporting TestSutra ❤️
+        </h4>
+
+        <p>
+
+          Your support motivates us to improve
+          TestSutra continuously. Stay connected
+          for upcoming updates.
+
+        </p>
+
+      </div>
+
+      <!-- FOOTER -->
+
+      <div class="footer">
+
+        © TestSutra • Under Development
+
+      </div>
+
     </div>
-    <section id="about" style="margin-top: 2rem; text-align: left;">
-      <h2 style="font-size: 1.45rem; margin-bottom: 0.8rem;">All About Welcome</h2>
-      <p>This page is built with plain HTML and CSS, and it links to the detailed sample app website stored inside the <code>coins</code> folder. Use this landing page to introduce your product, explain the benefits, and direct users to the main app showcase.</p>
-    </section>
+
   </div>
+
 </body>
 </html>
